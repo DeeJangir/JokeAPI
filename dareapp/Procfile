@@ -1,0 +1,1 @@
+web: gunicorn dareapp.wsgi --log-file -

@@ -1,0 +1,84 @@
+{% load static i18n%}
+{% block content %}
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cross Dare</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1879855670645846",
+        enable_page_level_ads: true
+      });
+
+    </script>
+</head>
+
+<style>
+    .do-as {
+        margin-top: 15px;
+        border: 1px solid #5d5f5f;
+        /* padding-left: 4px */
+    }
+
+</style>
+
+<body class="container">
+<div class="bs-example">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a href="#" class="navbar-brand">
+            <img src="{% static 'logo.jpg' %}" height="38" alt="CoolBrand">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a href="/dare" class="nav-item nav-link active">Dares</a>
+                <a href="/jokes" class="nav-item nav-link">Jokes</a>
+                <a href="/quotes" class="nav-item nav-link">Quotes</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="row container text-center">
+    <div class="col-sm-6 col-md-6 w-40 p-1 do-as mx-auto bottom-margin">{{ dare_line }}</div>
+</div>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <!--    <a href="whatsapp://send?text=The text to share!">Share via Whatsapp</a>-->
+        <div class="col-sm-1">
+            <button class="btn btn-primary" id="share">Share</button>
+        </div>
+        <div class="col-sm-1">
+            <button class="btn btn-success" id="change">Change</button>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+
+    $('#share').click(function () {
+        window.location = 'whatsapp://send?text='+window.location.href;
+        return false;
+    });
+
+    $('#change').click(function () {
+        window.location = window.location.href + 'details';
+        return false;
+    });
+
+
+</script>
+
+{% endblock %}
